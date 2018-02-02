@@ -1,0 +1,6 @@
+*
+!.gitignore
+!AdminAsset.php
+!AppAsset.php
+!PhotoSwipeAsset.php
+!KladrAsset.php

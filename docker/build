@@ -1,0 +1,10 @@
+source params
+
+docker rm $CONTAINER_NAME -f
+docker build -t $IMAGE_NAME --build-arg APP_NAME=$APP_NAME .
+docker run -i -p 22 -p 21:21 -p 80:80 -p 5432:5432 -d -itd --name $CONTAINER_NAME -v "`( cd \"$MY_PATH\" && pwd )`../..":/var/www/"$APP_NAME" $IMAGE_NAME
+docker exec $CONTAINER_NAME /bin/sh -c "cd /var/www/"$APP_NAME"/docker/ && chmod 777 install.sh"
+docker exec $CONTAINER_NAME /bin/sh -c "cd && /var/www/"$APP_NAME"/docker/install.sh $APP_NAME $PG_PASSWORD"
+
+
+#docker exec $CONTAINER_NAME /bin/sh -c "cd && /var/www/"$APP_NAME"/docker/test.sh $APP_NAME $PG_PASSWORD"

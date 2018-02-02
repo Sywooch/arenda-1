@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+    postgres:
+        image: postgres:9.3.13
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_DB=arendatika
+    server:
+        build: ./docker/php
+        environment:
+            - VIRTUAL_HOST=arendatika.loc,adminer.arendatika.loc
+            - GITHUB_TOKEN=d8f694c2ad5c6887832973a37237a4f9342152dc
+            - ADMINER_HOST=adminer.arendatika.loc
+            - FRONTEND_HOST=arendatika.loc
+        volumes:
+            - ./:/var/www/sources
+
+        networks:
+            - default
+            - proxy_default
+
+volumes:
+    postgres-data:
+
+networks:
+    proxy_default:
+        external: true

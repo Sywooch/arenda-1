@@ -1,0 +1,8 @@
+
+FROM ubuntu:14.04
+
+ARG APP_NAME='application.loc'
+
+EXPOSE 80 443 8083 22 3306 5432 21
+
+

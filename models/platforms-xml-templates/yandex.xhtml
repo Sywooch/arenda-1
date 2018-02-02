@@ -1,0 +1,40 @@
+<offer internal-id="{id}">
+    <type>аренда</type>
+    <category>{accommodation_type}</category>
+    <commercial-type>office</commercial-type>
+    <commercial-building-type>business center</commercial-building-type>
+    <url>{url}</url>
+    <creation-date>{date_created}</creation-date>
+    <last-update-date>{date_updated}</last-update-date>
+    <location>
+        <country>Россия</country>
+        <district>{city}</district>
+        <locality-name>{city}</locality-name>
+        <sub-locality-name>{city}</sub-locality-name>
+        <address>{street}</address>
+    </location>
+    <sales-agent>
+        <phone>{phone}</phone>
+        <organization>{company_name}</organization>
+        <url>{site}</url>
+        <photo>{logo}</photo>
+    </sales-agent>
+    <price>
+        <value>{rent_cost_per_month}</value>
+        <currency>{currency}</currency>
+        <period>month</period>
+        <taxation-form>НДС</taxation-form>
+    </price>
+    <deal-status>direct rent</deal-status>
+    <area>
+        <value>{total_area}</value>
+        <unit>кв. м</unit>
+    </area>
+    <image>{image}</image>
+    {all_images}
+    <quality>{condition}</quality>
+    <description>{description}</description>
+    <rooms>{number_of_rooms}</rooms>
+    <floor>{location_floor}</floor>
+    <floors-total>{house_floors}</floors-total>
+</offer>
